@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "MarkPro";
+    src: url(../assets/fonts/Mark\ Pro.ttf);
+}
+
+* {
+    outline: none !important;
+    box-sizing: border-box;
+    font-family: "MarkPro", sans-serif !important;
+}
+
+body {
+    margin: 0 !important;
+    background: #000 !important;
+    color: #fff;
+}
