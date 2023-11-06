@@ -37,11 +37,11 @@ const Post = ({
     comments,
     postId,
 }) => {
-    const [socket, setSocket] = useState(null);
     const [comment, setComment] = useState({
         content: "",
         userId: "",
     });
+    const [isLiked,setIsLiked]=useState(false)
 
     const [type, setType] = useState("");
     const [id, setId] = useState("");
@@ -52,6 +52,7 @@ const Post = ({
         comment.userId = user.id;
 
         console.log("ty le id" + user.id);
+        allReactions(user.id)
     }, []);
 
     const [reaction, setReaction] = useState({
@@ -66,12 +67,26 @@ const Post = ({
                 `http://127.0.0.1:8080/posts/${postId}/reactions`,
                 { userId: id, type: type }
             );
-
-            console.log("reaction persistée");
+                
         } catch (error) {
             console.log(error);
         }
     };
+    const allReactions=async (idUser) =>{
+        try{
+            const res=await axios.get(
+                `http://127.0.0.1:8080/posts/${postId}/reactions`
+                
+            )
+            if(res.data.idUser==idUser)
+            console.log("this post is liked ");
+        else
+        console.log("this post is not liked");
+        }
+        catch(error){
+            console.log(error);
+        }
+    } 
     const deleteReaction = async (type) => {};
     /* useEffect(() => {
         console.log("zany ny id e lele"+id);
@@ -119,7 +134,7 @@ const Post = ({
 
                     <div className="flex justify-between items-center mt-3">
                         <div className="flex gap-5">
-                            <button className=" py-1  text-white flex gap-1 items-center">
+                            <button className=" py-1  text-white flex gap-1 items-center bg-black">
                                 <p className="pt-2 text-[0.8rem]">{like}</p>
                                 <a
                                     href="#Like"

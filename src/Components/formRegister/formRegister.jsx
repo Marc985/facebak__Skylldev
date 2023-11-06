@@ -23,10 +23,10 @@ const FormRegister = () => {
                 "http://localhost:8080/users",
                 user
             );
-            localStorage.setItem("token", response.data.token);
+          //  localStorage.setItem("token", response.data.token);
             localStorage.setItem("user", JSON.stringify(user));
 
-            navigate("/");
+            navigate("/home");
         } catch (error) {
             if (error.response) {
                 console.log(error.response.data);
