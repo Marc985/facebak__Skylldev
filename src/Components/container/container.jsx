@@ -40,16 +40,16 @@ const Container = ({ iconPage, namePage }) => {
                     <header className="bg-black py-3 px-6 flex justify-between items-center border-b-[1px] border-gray-800 fixed w-[-webkit-fill-available]">
                         {/* -----------------------------//-------------------------------- */}
                         <div>
-                            {/* Icon Page ! where we are actually ? */}
+                            {/* Icon Page where we are actually ? */}
                             <div className="flex items-center gap-3">
                                 <p className="flex items-center gap-3">
-                                    {iconPage}{" "}
+                                    {iconPage}{""}
                                     <span className="hidden md:block">
                                         {namePage}
                                     </span>
                                 </p>
                             </div>
-                        </div>
+                        </div> 
 
                         {/* -----------------------------//-------------------------------- */}
                         <div className="flex gap-3 lg:gap-5">
