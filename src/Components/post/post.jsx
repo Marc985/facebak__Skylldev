@@ -22,7 +22,7 @@ import io from "socket.io-client";
 import TextareaForm from "../textareaForm/textareaForm.jsx";
 import { addComment } from "@babel/types";
 import { async } from "q";
-import url from "../../apiUrl/APIURL.jsx";
+import Url from "../../apiUrl/APIURL.jsx";
 //socket io
 
 const Post = ({
@@ -64,7 +64,7 @@ const Post = ({
         try {
             console.log(type);
             const response = await axios.post(
-                `${url}/posts/${postId}/reactions`,
+                `${Url}/posts/${postId}/reactions`,
                 { userId: id, type: type }
             );
                 
@@ -75,7 +75,7 @@ const Post = ({
     const allReactions=async (idUser) =>{
         try{
             const res=await axios.get(
-                `${url}/posts/${postId}/reactions`
+                `${Url}/posts/${postId}/reactions`
                 
             )
         }
@@ -90,7 +90,7 @@ const Post = ({
     const AddComment = async (postId) => {
         try {
             const res = await axios.put(
-                `${url}/posts/${postId}/comments`,
+                `${Url}/posts/${postId}/comments`,
                 comment
             );
             const a = res.data;

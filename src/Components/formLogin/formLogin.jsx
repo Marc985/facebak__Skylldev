@@ -5,6 +5,7 @@ import { AiOutlineGoogle } from "react-icons/ai";
 import { BsChevronRight } from "react-icons/bs";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Url from "../../apiUrl/APIURL";
 const FormLogin = () => {
     const navigate = useNavigate();
     const [value, setValue] = useState({
@@ -17,7 +18,7 @@ const FormLogin = () => {
         e.preventDefault();
         try {
             const response = await axios.put(
-                `${url}/users`,
+                `${Url}/users`,
                 value
             );
             const userData = response.data;

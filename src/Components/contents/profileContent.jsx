@@ -4,7 +4,7 @@ import Profile from "../../assets/imgs/profile.jpg";
 import { BiEditAlt } from "react-icons/bi";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import url from "../../apiUrl/APIURL";
+import Url from "../../apiUrl/APIURL";
 const ProfileContent = () => {
     const [username, setUserName] = useState("");
     const [email, setEmail] = useState("");
@@ -25,7 +25,7 @@ const ProfileContent = () => {
     const getUserById = async (id) => {
         try {
             const response = await axios.get(
-                `${url}/users/${id}`
+                `${Url}/users/${id}`
             );
             const value = response.data;
             console.log(response);
@@ -94,7 +94,7 @@ const ProfileContent = () => {
 
         try {
             const response = await axios.put(
-                `${url}/users`,
+                `${Url}/users`,
                 userstate
             );
             localStorage.setItem("token", response.data.token);

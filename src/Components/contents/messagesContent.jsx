@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import url from "../../apiUrl/APIURL";
+import Url from "../../apiUrl/APIURL";
 const MessagesContent = () => {
     const [username, setUserName] = useState("");
     const [email, setEmail] = useState("");
@@ -23,7 +23,7 @@ const MessagesContent = () => {
 
     const getUsers = async () => {
         try {
-            const response = await axios.get(`${url}/users`); //3. faire la requête HTTP grâce à axios
+            const response = await axios.get(`${Url}/users`); //3. faire la requête HTTP grâce à axios
             setUsers(response.data); // 4. stocker le résultat dans l'état
         } catch (error) {
             console.error(
