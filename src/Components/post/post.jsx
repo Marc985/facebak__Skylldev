@@ -22,7 +22,7 @@ import io from "socket.io-client";
 import TextareaForm from "../textareaForm/textareaForm.jsx";
 import { addComment } from "@babel/types";
 import { async } from "q";
-
+import url from "../../apiUrl/APIURL.jsx";
 //socket io
 
 const Post = ({
@@ -52,7 +52,7 @@ const Post = ({
         comment.userId = user.id;
 
         console.log("ty le id" + user.id);
-        allReactions(user.id)
+        allReactions()
     }, []);
 
     const [reaction, setReaction] = useState({
@@ -64,7 +64,7 @@ const Post = ({
         try {
             console.log(type);
             const response = await axios.post(
-                `http://127.0.0.1:8080/posts/${postId}/reactions`,
+                `${url}/posts/${postId}/reactions`,
                 { userId: id, type: type }
             );
                 
@@ -75,13 +75,9 @@ const Post = ({
     const allReactions=async (idUser) =>{
         try{
             const res=await axios.get(
-                `http://127.0.0.1:8080/posts/${postId}/reactions`
+                `${url}/posts/${postId}/reactions`
                 
             )
-            if(res.data.idUser==idUser)
-            console.log("this post is liked ");
-        else
-        console.log("this post is not liked");
         }
         catch(error){
             console.log(error);
@@ -94,7 +90,7 @@ const Post = ({
     const AddComment = async (postId) => {
         try {
             const res = await axios.put(
-                `http://localhost:8080/posts/${postId}/comments`,
+                `${url}/posts/${postId}/comments`,
                 comment
             );
             const a = res.data;

@@ -16,9 +16,10 @@ import TextareaForm from "../textareaForm/textareaForm.jsx";
 import ContactList from "../contactList/contactList.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import url from "../../apiUrl/APIURL.jsx";
 // import { async } from "q";
 import io from "socket.io-client";
-
+i
 const HomeContent = () => {
     const [users, setUsers] = useState([]);
     const [currentUser, setCurrentUser] = useState(null);
@@ -44,7 +45,7 @@ const HomeContent = () => {
     const getUsers = async () => {
         var userIdCont;
         try {
-            const response = await axios.get("http://localhost:8080/users");
+            const response = await axios.get(`${url}/users`);
             setUsers(response.data);
 
             const userString = localStorage.getItem("user");
@@ -82,7 +83,7 @@ const HomeContent = () => {
         // console.log(value);
         try {
             const response = await axios.put(
-                "http://localhost:8080/posts",
+                `${url}/posts`,
                 value
             );
             const postData = response.data;
@@ -101,7 +102,7 @@ const HomeContent = () => {
 
     const getPosts = async () => {
         try {
-            const res = await axios.get("http://localhost:8080/posts");
+            const res = await axios.get(`${url}/posts`);
             setUserPosts(res.data);
             const updatePostsComments = {};
             for (const post of res.data) {
@@ -118,7 +119,7 @@ const HomeContent = () => {
     const getComments = async (idPost) => {
         try {
             const res = await axios.get(
-                `http://localhost:8080/posts/${idPost}/comments`
+                `${url}/posts/${idPost}/comments`
             );
             return res.data;
         } catch (error) {

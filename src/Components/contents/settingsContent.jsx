@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import url from "../../apiUrl/APIURL";
 const SettingsContent = () => {
     const [users, setUsers] = useState([]);
     const [currentUser, setCurrentUser] = useState(null);
@@ -23,7 +23,7 @@ const SettingsContent = () => {
 
     const getUsers = async () => {
         try {
-            const response = await axios.get("http://localhost:8080/users");
+            const response = await axios.get(`${url}/users`);
             setUsers(response.data);
 
             const userString = localStorage.getItem("user");

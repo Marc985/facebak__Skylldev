@@ -19,7 +19,6 @@ import Profile1 from "../../assets/imgs/profile.jpg";
 
 import Footer from "../footer/footer.jsx";
 import { useState, useEffect } from "react";
-
 const Container = ({ iconPage, namePage }) => {
     const [username, setUserName] = useState("");
     const [email, setEmail] = useState("");
@@ -40,7 +39,7 @@ const Container = ({ iconPage, namePage }) => {
                     <header className="bg-black py-3 px-6 flex justify-between items-center border-b-[1px] border-gray-800 fixed w-[-webkit-fill-available]">
                         {/* -----------------------------//-------------------------------- */}
                         <div>
-                            {/* Icon Page where we are actually ? */}
+                            {/* Icon Pagewhere we are actually ? */}
                             <div className="flex items-center gap-3">
                                 <p className="flex items-center gap-3">
                                     {iconPage}{""}

@@ -3,7 +3,7 @@ import UserProfil from "../userProfil/userProfil.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import io from "socket.io-client";
-
+import url from "../../apiUrl/APIURL.jsx";
 const ContactList = () => {
     const [socket, setSocket] = useState(null);
     const [users, setUsers] = useState([]);
@@ -37,7 +37,7 @@ const ContactList = () => {
     useEffect(() => {
         const getUsers = async () => {
             try {
-                const res = await axios.get("http://localhost:8080/users");
+                const res = await axios.get(`${url}/users`);
                 const users = res.data;
                 setUsers(users);
             } catch (error) {

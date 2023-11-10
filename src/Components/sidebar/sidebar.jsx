@@ -91,6 +91,7 @@ const Sidebar = () => {
                                 <CiLogout className="text-2xl text-white" />
                             </a>
                         </button>
+                        
 
                         <p
                             class="font-bold text-sm ml-2 text-[0.8rem] hidden lg:block cursor-pointer hover:scale-50"

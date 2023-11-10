@@ -6,7 +6,7 @@ import { AiOutlineGoogle } from "react-icons/ai";
 import { BsChevronRight } from "react-icons/bs";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import url from "../../apiUrl/APIURL";
 const FormRegister = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState({
@@ -20,7 +20,7 @@ const FormRegister = () => {
 
         try {
             const response = await axios.post(
-                "http://localhost:8080/users",
+                `${url}/users`,
                 user
             );
           //  localStorage.setItem("token", response.data.token);
